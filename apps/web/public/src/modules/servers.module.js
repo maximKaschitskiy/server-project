@@ -60,6 +60,13 @@ export const serversModule = angular.module('servers',[])
                     })
                 }
             }
+            this.reboot = function(){
+              if(confirm('Вы хотите перезапустить сервер?')){
+                  this.server.$reboot(function(){
+                      NotificationService.showSuccess('Сервер остановлен')
+                  })
+              }
+          }
     }]
 }).directive('serverUserActionTable', [
       '$compile', 'dataTableLanguage', function($compile, dataTableLanguage) {
